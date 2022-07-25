@@ -19,7 +19,6 @@ function createrow(columnid,rowi) {
     // row.textContent='x';
     columni.appendChild(row);
 }
-
 function createcolumn(columni) {
     const column = document.createElement('div');
     column.setAttribute('id', `column${columni}`);
@@ -29,6 +28,12 @@ function createcolumn(columni) {
 }
 
 creategrid(16,16);
+const selectRow = document.querySelectorAll(".row");
+selectRow.forEach(rowhover => {
+    rowhover.addEventListener('mouseenter', function hover(event) {
+    event.target.classList.add('bg-black');
+})
+});
 
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
@@ -38,7 +43,12 @@ btn.addEventListener('click', () => {
         removeAllChildNodes(whole)
         creategrid(squares, squares);
     };
-
+    const selectRow = document.querySelectorAll(".row");
+    selectRow.forEach(rowhover => {
+    rowhover.addEventListener('mouseenter', function hover(event) {
+    event.target.classList.add('bg-black');
+})
+});
 })
 
 function removeAllChildNodes(parent) {
