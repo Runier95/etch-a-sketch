@@ -31,9 +31,25 @@ creategrid(16,16);
 const selectRow = document.querySelectorAll(".row");
 selectRow.forEach(rowhover => {
     rowhover.addEventListener('mouseenter', function hover(event) {
-    event.target.classList.add('bg-black');
-})
+    // event.target.classList.add('bg-black');
+    // randomRgbColor()
+    event.target.style.background = `rgb(${randomInteger(255)}, ${randomInteger(255)}, ${randomInteger(255)})`;
+}, {once: true})
 });
+
+function randomInteger(max) {
+    return Math.floor(Math.random()*(max + 1));
+}
+
+function randomRgbColor() {
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
+    return `rgb(${r}, ${g}, ${b})`;
+    console.log(r);
+    console.log(g);
+    console.log(b);
+}
 
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', () => {
@@ -46,10 +62,11 @@ btn.addEventListener('click', () => {
     const selectRow = document.querySelectorAll(".row");
     selectRow.forEach(rowhover => {
     rowhover.addEventListener('mouseenter', function hover(event) {
-    event.target.classList.add('bg-black');
+    // event.target.classList.add('bg-black');
+    event.target.style.background = `rgb(${randomInteger(255)}, ${randomInteger(255)}, ${randomInteger(255)})`;
+}, {once: true})
 })
 });
-})
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
